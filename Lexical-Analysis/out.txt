@@ -1,0 +1,285 @@
+1:
+	< "int" , RESERVED_WORD >
+	< "x" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "10" , NUM >
+	< "]" , SPECIAL_SYMBOL >
+	< ";" , SPECIAL_SYMBOL >
+2:
+	< "int" , RESERVED_WORD >
+	< "minloc" , ID >
+	< "(" , SPECIAL_SYMBOL >
+	< "int" , RESERVED_WORD >
+	< "a" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "]" , SPECIAL_SYMBOL >
+	< "," , SPECIAL_SYMBOL >
+	< "int" , RESERVED_WORD >
+	< "low" , ID >
+	< "," , SPECIAL_SYMBOL >
+	< "int" , RESERVED_WORD >
+	< "high" , ID >
+	< ")" , SPECIAL_SYMBOL >
+3:
+	< "{" , SPECIAL_SYMBOL >
+4:
+	< "int" , RESERVED_WORD >
+	< "i" , ID >
+	< ";" , SPECIAL_SYMBOL >
+	< "int" , RESERVED_WORD >
+	< "x" , ID >
+	< ";" , SPECIAL_SYMBOL >
+	< "int" , RESERVED_WORD >
+	< "k" , ID >
+	< ";" , SPECIAL_SYMBOL >
+5:
+	< "k" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "low" , ID >
+	< ";" , SPECIAL_SYMBOL >
+6:
+	< "x" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "a" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "low" , ID >
+	< "]" , SPECIAL_SYMBOL >
+	< ";" , SPECIAL_SYMBOL >
+7:
+	< "i" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "low" , ID >
+	< "+" , SPECIAL_SYMBOL >
+	< "1" , NUM >
+	< ";" , SPECIAL_SYMBOL >
+8:
+	< "while" , RESERVED_WORD >
+	< "(" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "<" , SPECIAL_SYMBOL, LT >
+	< "high" , ID >
+	< ")" , SPECIAL_SYMBOL >
+9:
+	< "{" , SPECIAL_SYMBOL >
+10:
+	< "if" , RESERVED_WORD >
+	< "(" , SPECIAL_SYMBOL >
+	< "a" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "]" , SPECIAL_SYMBOL >
+	< "<" , SPECIAL_SYMBOL, LT >
+	< "x" , ID >
+	< ")" , SPECIAL_SYMBOL >
+11:
+	< "{" , SPECIAL_SYMBOL >
+12:
+	< "x" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "a" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "]" , SPECIAL_SYMBOL >
+	< ";" , SPECIAL_SYMBOL >
+13:
+	< "k" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< ";" , SPECIAL_SYMBOL >
+14:
+	< "}" , SPECIAL_SYMBOL >
+15:
+	< "i" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "+" , SPECIAL_SYMBOL >
+	< "1" , NUM >
+	< ";" , SPECIAL_SYMBOL >
+16:
+	< "}" , SPECIAL_SYMBOL >
+17:
+	< "return" , RESERVED_WORD >
+	< "k" , ID >
+	< ";" , SPECIAL_SYMBOL >
+18:
+	< "}" , SPECIAL_SYMBOL >
+19:
+	< "void" , RESERVED_WORD >
+	< "sort" , ID >
+	< "(" , SPECIAL_SYMBOL >
+	< "int" , RESERVED_WORD >
+	< "a" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "]" , SPECIAL_SYMBOL >
+	< "," , SPECIAL_SYMBOL >
+	< "int" , RESERVED_WORD >
+	< "low" , ID >
+	< "," , SPECIAL_SYMBOL >
+	< "int" , RESERVED_WORD >
+	< "high" , ID >
+	< ")" , SPECIAL_SYMBOL >
+20:
+	< "{" , SPECIAL_SYMBOL >
+21:
+	< "int" , RESERVED_WORD >
+	< "i" , ID >
+	< ";" , SPECIAL_SYMBOL >
+	< "int" , RESERVED_WORD >
+	< "k" , ID >
+	< ";" , SPECIAL_SYMBOL >
+22:
+	< "i" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "low" , ID >
+	< ";" , SPECIAL_SYMBOL >
+23:
+	< "while" , RESERVED_WORD >
+	< "(" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "<" , SPECIAL_SYMBOL, LT >
+	< "high" , ID >
+	< "-" , SPECIAL_SYMBOL >
+	< "1" , NUM >
+	< ")" , SPECIAL_SYMBOL >
+24:
+	< "{" , SPECIAL_SYMBOL >
+25:
+	< "int" , RESERVED_WORD >
+	< "t" , ID >
+	< ";" , SPECIAL_SYMBOL >
+26:
+	< "k" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "minloc" , ID >
+	< "(" , SPECIAL_SYMBOL >
+	< "a" , ID >
+	< "," , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "," , SPECIAL_SYMBOL >
+	< "high" , ID >
+	< ")" , SPECIAL_SYMBOL >
+	< ";" , SPECIAL_SYMBOL >
+27:
+	< "t" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "a" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "k" , ID >
+	< "]" , SPECIAL_SYMBOL >
+	< ";" , SPECIAL_SYMBOL >
+28:
+	< "a" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "k" , ID >
+	< "]" , SPECIAL_SYMBOL >
+	< "=" , SPECIAL_SYMBOL >
+	< "a" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "]" , SPECIAL_SYMBOL >
+	< ";" , SPECIAL_SYMBOL >
+29:
+	< "a" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "]" , SPECIAL_SYMBOL >
+	< "=" , SPECIAL_SYMBOL >
+	< "t" , ID >
+	< ";" , SPECIAL_SYMBOL >
+30:
+	< "i" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "+" , SPECIAL_SYMBOL >
+	< "1" , NUM >
+	< ";" , SPECIAL_SYMBOL >
+31:
+	< "}" , SPECIAL_SYMBOL >
+32:
+	< "}" , SPECIAL_SYMBOL >
+33:
+	< "void" , RESERVED_WORD >
+	< "main" , ID >
+	< "(" , SPECIAL_SYMBOL >
+	< "void" , RESERVED_WORD >
+	< ")" , SPECIAL_SYMBOL >
+34:
+	< "{" , SPECIAL_SYMBOL >
+35:
+	< "int" , RESERVED_WORD >
+	< "i" , ID >
+	< ";" , SPECIAL_SYMBOL >
+36:
+	< "i" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "0" , NUM >
+	< ";" , SPECIAL_SYMBOL >
+37:
+	< "while" , RESERVED_WORD >
+	< "(" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "<=" , SPECIAL_SYMBOL, LE >
+	< "10" , NUM >
+	< ")" , SPECIAL_SYMBOL >
+38:
+	< "{" , SPECIAL_SYMBOL >
+39:
+	< "x" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "]" , SPECIAL_SYMBOL >
+	< "=" , SPECIAL_SYMBOL >
+	< "input" , ID >
+	< ";" , SPECIAL_SYMBOL >
+40:
+	< "i" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "+" , SPECIAL_SYMBOL >
+	< "1" , NUM >
+	< ";" , SPECIAL_SYMBOL >
+41:
+	< "sort" , ID >
+	< "(" , SPECIAL_SYMBOL >
+	< "x" , ID >
+	< "," , SPECIAL_SYMBOL >
+	< "0" , NUM >
+	< "," , SPECIAL_SYMBOL >
+	< "10" , NUM >
+	< ")" , SPECIAL_SYMBOL >
+	< ";" , SPECIAL_SYMBOL >
+42:
+	< "i" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "0" , NUM >
+	< ";" , SPECIAL_SYMBOL >
+43:
+	< "while" , RESERVED_WORD >
+	< "(" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "<" , SPECIAL_SYMBOL, LT >
+	< "10" , NUM >
+	< ")" , SPECIAL_SYMBOL >
+44:
+	< "{" , SPECIAL_SYMBOL >
+45:
+	< "output" , ID >
+	< "(" , SPECIAL_SYMBOL >
+	< "x" , ID >
+	< "[" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "]" , SPECIAL_SYMBOL >
+	< ")" , SPECIAL_SYMBOL >
+	< ";" , SPECIAL_SYMBOL >
+46:
+	< "i" , ID >
+	< "=" , SPECIAL_SYMBOL >
+	< "i" , ID >
+	< "+" , SPECIAL_SYMBOL >
+	< "1" , NUM >
+	< ";" , SPECIAL_SYMBOL >
+47:
+	< "}" , SPECIAL_SYMBOL >
+49:
+	< "/* dasda 
+		*/" , COMMENT >
