@@ -18,7 +18,7 @@ void lexInit() {
 		Letter += i;
 		Letter += i + 'A' - 'a';
 	}
-	final_set = { 2 };
+    final_set = { 2 };
 	table = {
 		{ {Letter, 1} },
 		{ {Letter, 1}, {Separator, 2} },
