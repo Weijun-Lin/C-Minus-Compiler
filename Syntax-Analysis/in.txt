@@ -1,8 +1,8 @@
 int main(int args) {
-	int a;
-	int b;
-	a = 3;
-	b = (a+4)/2;
-	printf(b);
-	return gcd(1,2);
+    int a;
+    int b;
+    a = 3;
+    b = (a+4)/2;
+    printf(b);
+    return gcd(1,2);
 }

@@ -1,9 +1,9 @@
 /*
-	@Date: 2019-10-31
-	@Include:
-		preset.h
-	@Desc:
-		C- 语言各种类型的DFA定义
+    @Date: 2019-10-31
+    @Include:
+        preset.h
+    @Desc:
+        C- 语言各种类型的DFA定义
 */
 
 #ifndef __LEX_C_MINUS_H__

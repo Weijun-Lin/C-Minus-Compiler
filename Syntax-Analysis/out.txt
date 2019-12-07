@@ -13,14 +13,14 @@
 < " " , BLANK >
 < "return" , RESERVED_WORD >
 < "
-	" , BLANK >
+    " , BLANK >
 < ";" , SPECIAL_SYMBOL >
 < ")" , SPECIAL_SYMBOL >
 < "b" , ID >
 < "(" , SPECIAL_SYMBOL >
 < "printf" , ID >
 < "
-	" , BLANK >
+    " , BLANK >
 < ";" , SPECIAL_SYMBOL >
 < "2" , NUM >
 < "/" , SPECIAL_SYMBOL >
@@ -34,7 +34,7 @@
 < " " , BLANK >
 < "b" , ID >
 < "
-	" , BLANK >
+    " , BLANK >
 < ";" , SPECIAL_SYMBOL >
 < "3" , NUM >
 < " " , BLANK >
@@ -42,19 +42,19 @@
 < " " , BLANK >
 < "a" , ID >
 < "
-	" , BLANK >
+    " , BLANK >
 < ";" , SPECIAL_SYMBOL >
 < "b" , ID >
 < " " , BLANK >
 < "int" , RESERVED_WORD >
 < "
-	" , BLANK >
+    " , BLANK >
 < ";" , SPECIAL_SYMBOL >
 < "a" , ID >
 < " " , BLANK >
 < "int" , RESERVED_WORD >
 < "
-	" , BLANK >
+    " , BLANK >
 < "{" , SPECIAL_SYMBOL >
 < " " , BLANK >
 < ")" , SPECIAL_SYMBOL >

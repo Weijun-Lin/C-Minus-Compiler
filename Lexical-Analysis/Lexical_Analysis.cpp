@@ -35,13 +35,13 @@ std::string readFile(std::string _file_path) {
 int main()
 {
     lexInit();
-	std::ifstream read_file; read_file.open(file_path);
-	if (!read_file.is_open()) {
-		return -1;
-	}
+    std::ifstream read_file; read_file.open(file_path);
+    if (!read_file.is_open()) {
+        return -1;
+    }
     
     std::ofstream out; out.open(out_file_path);
-	std::string src_code = readFile(file_path);
+    std::string src_code = readFile(file_path);
     std::vector<LexType> lexes = lexCompile(src_code);
     std::string line;
     int index = 1;

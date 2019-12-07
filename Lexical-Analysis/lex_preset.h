@@ -1,6 +1,6 @@
 /*
-	@Date: 2019-10-30
-	@Desc: 词法分析器预配置
+    @Date: 2019-10-30
+    @Desc: 词法分析器预配置
 */
 
 
@@ -27,21 +27,21 @@ extern std::map<LexicalName, std::string> LexName_Str;
 
 // 词法类型
 struct LexType {
-	std::string lexeme;	// 词素
-	LexicalName token;	// 词法单元名字
-	std::string attr;	// 属性值
+    std::string lexeme;    // 词素
+    LexicalName token;    // 词法单元名字
+    std::string attr;    // 属性值
     std::string show();
 };
 
 /*
-	状态转移表：
-	结构如下：（为简便 string代替原来的 char， 一组字母可以到同一个状态）
-	e.g.
-	states<vector's index>  map<string, state>
-	0						("+-*...", 1),('/', 2)
+    状态转移表：
+    结构如下：（为简便 string代替原来的 char， 一组字母可以到同一个状态）
+    e.g.
+    states<vector's index>  map<string, state>
+    0                        ("+-*...", 1),('/', 2)
 
-	p.s.
-	string.length() == 0 表明接受任意字符
+    p.s.
+    string.length() == 0 表明接受任意字符
 */
 typedef std::vector<std::vector<std::pair<std::string, int>>> MoveTable;
 typedef std::set<int> FinalStates;
@@ -49,28 +49,28 @@ typedef std::set<int> FinalStates;
 // 计算一个确定状态转换
 class DFA {
 public:
-	// 初始化DFA默认使用空构造
-	DFA(MoveTable _move_table = {}, 
-		LexicalName _token_name = LexicalName::COMMENT, 
-		FinalStates _final_states = {}
-	);
-	/*
-		@Param:
-			int:forward 当前指针下标
-			string:srccode 源代码
-		@Return:
-			<bool,LexType> 是否合法，合法返回相应信息
-	*/
-	std::pair<int, LexType> dfa(int _forward, std::string& _srccode);	// DFA执行
-	~DFA ();
+    // 初始化DFA默认使用空构造
+    DFA(MoveTable _move_table = {}, 
+        LexicalName _token_name = LexicalName::COMMENT, 
+        FinalStates _final_states = {}
+    );
+    /*
+        @Param:
+            int:forward 当前指针下标
+            string:srccode 源代码
+        @Return:
+            <bool,LexType> 是否合法，合法返回相应信息
+    */
+    std::pair<int, LexType> dfa(int _forward, std::string& _srccode);    // DFA执行
+    ~DFA ();
     
 private:
-	LexicalName __token_name;
-	MoveTable __move_table;
-	FinalStates __final_states;
+    LexicalName __token_name;
+    MoveTable __move_table;
+    FinalStates __final_states;
 
-	// 获取下一个状态 -1 表示非法
-	int __state_trans(int _state, char _letter);
+    // 获取下一个状态 -1 表示非法
+    int __state_trans(int _state, char _letter);
 };
 
 // 保留字集合

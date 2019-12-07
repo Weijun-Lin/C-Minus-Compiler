@@ -11,59 +11,59 @@ std::string Digit = "0123456789";
 std::string Separator = "+-*/<>=()[]{};,\n\t\r ";
 
 void lexInit() {
-	MoveTable table = {};
-	FinalStates final_set = {};
-	// 初始化ID, letter
-	for (char i = 'a'; i != 'z'; i++) {
-		Letter += i;
-		Letter += i + 'A' - 'a';
-	}
+    MoveTable table = {};
+    FinalStates final_set = {};
+    // 初始化ID, letter
+    for (char i = 'a'; i != 'z'; i++) {
+        Letter += i;
+        Letter += i + 'A' - 'a';
+    }
     final_set = { 2 };
-	table = {
-		{ {Letter, 1} },
-		{ {Letter, 1}, {Separator, 2} },
+    table = {
+        { {Letter, 1} },
+        { {Letter, 1}, {Separator, 2} },
         {}
-	};
-	Id = { table, LexicalName::ID, final_set };
-	// 初始化NUM
+    };
+    Id = { table, LexicalName::ID, final_set };
+    // 初始化NUM
     final_set = { 2 };
-	table = {
-		{ {Digit, 1} },
-		{ {Digit, 1}, {Separator, 2} },
+    table = {
+        { {Digit, 1} },
+        { {Digit, 1}, {Separator, 2} },
         {}
-	};
-	Num = { table, LexicalName::NUM, final_set };
-	// 初始化空格
+    };
+    Num = { table, LexicalName::NUM, final_set };
+    // 初始化空格
     final_set = { 1 };
-	table = {
-		{ {"\n\t\r ", 1} },
-		{ {"\n\t\r ", 1} },
-	};
-	Blank = { table, LexicalName::BLANK, final_set };
-	// 初始化注释
-	final_set = { 5 };
-	table = {
-		{ {"/", 1} },
+    table = {
+        { {"\n\t\r ", 1} },
+        { {"\n\t\r ", 1} },
+    };
+    Blank = { table, LexicalName::BLANK, final_set };
+    // 初始化注释
+    final_set = { 5 };
+    table = {
+        { {"/", 1} },
         { {"*", 3},{"", 2} },
         {},
         { {"*", 4},{"", 3} },
         { {"/", 5}, {"*", 4}, {"", 3} },
         {},
-	};
+    };
 
-	Comment = { table, LexicalName::COMMENT, final_set };
-	// 初始化特殊符号
-	final_set = { 1, 2, 3, 5 };
-	table = {
+    Comment = { table, LexicalName::COMMENT, final_set };
+    // 初始化特殊符号
+    final_set = { 1, 2, 3, 5 };
+    table = {
         { {"+-*()[]{};,", 1}, {"<>=", 2}, {"!", 4}, {"/", 5 } },
-		{},
-		{ {"=", 3} },
-		{},
-		{ {"=", 3} },
+        {},
+        { {"=", 3} },
+        {},
+        { {"=", 3} },
         { {"*", 6} },
         {},
-	};
-	Special_sign = { table, LexicalName::SPECIAL_SYMBOL, final_set };
+    };
+    Special_sign = { table, LexicalName::SPECIAL_SYMBOL, final_set };
 }
 
 int dealError(int _forward, std::string& _src_code) {
@@ -80,13 +80,13 @@ int dealError(int _forward, std::string& _src_code) {
 
 std::vector<LexType> lexCompile(std::string _src_code) {
     std::vector<LexType> res;
-	int forward = 0, length = _src_code.length();
+    int forward = 0, length = _src_code.length();
     std::vector<DFA> dfas = {Id, Comment, Num, Special_sign, Blank};
     //std::vector<DFA> dfas = {Comment, Blank};
     int dfas_size = dfas.size();
     std::vector<std::pair<int, LexType>> biases(dfas_size);
   
-	while (forward < length) {
+    while (forward < length) {
         // 遍历所有的DFA 找出匹配最长的那个
         std::pair<int, LexType> temp;
         for (int i = 0; i < dfas_size; i++) {
@@ -136,6 +136,6 @@ std::vector<LexType> lexCompile(std::string _src_code) {
         }
 
         res.push_back(_T);
-	}        
+    }        
     return res;
 }
