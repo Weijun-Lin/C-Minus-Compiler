@@ -41,18 +41,20 @@ std::map<std::string, ProductionRight> Grammar = {
     {"statement-list",      {{ {4,"statement-list`"}}}},
     {"statement-list`",     {{ {4,"statement"},{4,"statement-list`"}},
                              { {5,epsilon}}}},
-    {"statement",           {{ {4,"expression-stmt"}},{{4,"compound-stmt"}},
+    {"statement",           {{ {4,"expression-stmt"}},
+                             { {4,"compound-stmt"}},
                              { {4,"selection-stmt"}},
                              { {4,"iteration-stmt"}},
                              { {4,"return-stmt"}}}},
     {"expression-stmt",     {{ {4,"expression"},{3,";"}},
                              { {3,";"}}}},
-    {"selection-stmt",      {{ {2,"if"}, {3,"("},{4,"expression"},{4,"statement"},{4,"other"}}}},
+    {"selection-stmt",      {{ {2,"if"}, {3,"("},{4,"expression"}, {3,")"}, {4,"statement"},{4,"other"}}}},
     {"other",               {{ {2,"else"}, {4,"statement"} },
                              { {5,epsilon} }} },
     {"iteration-stmt",      {{ {2,"while"}, {3,"("}, {4,"expression"}, {3,")"},{4,"statement"} }}},
     {"return-stmt",         {{ {2,"return"},{4,"return-stmt`"}}}},
-    {"return-stmt`",        {{ {3,";"}},{{4,"expression"},{3,";"}}}},
+    {"return-stmt`",        {{ {3,";"}},
+                             { {4,"expression"},{3,";"}}}},
     {"expression",          {{ {3,"("},{4,"expression"},{3,")"},{4,"term`"},{4,"additive-expression`"},{4,"simple-expression`"}},
                              { {1,"NUM"},{4,"term`"}, {4,"additive-expression`"} ,{4,"simple-expression`"}},
                              { {0,"ID"},{4,"expression`"}}}},
@@ -65,7 +67,12 @@ std::map<std::string, ProductionRight> Grammar = {
     {"simple-expression",   {{ {4,"additive-expression"},{4,"simple-expression`"}}}},
     {"simple-expression`",  {{ {4,"relop"},{4,"additive-expression"}},
                              { {5,epsilon}}}},
-    {"relop",               {{ {3,"<="},{3,"<"},{3,">"},{3,">="},{3,"=="},{3,"!="}}}},
+    {"relop",               {{ {3,"<="}},
+                             { {3,"<"} },
+                             { {3,">"} },
+                             { {3,">="} },
+                             { {3,"=="} },
+                             { {3,"!="} }}},
     {"additive-expression", {{ {4,"term"},{4,"additive-expression`"}}}},
     {"additive-expression`",{{ {4,"addop"},{4,"term"}, {4,"additive-expression`"}},
                              { {5,epsilon}}}},
@@ -160,21 +167,21 @@ void widthPrint(std::string _str, char _c, int _width) {
     }
 }
 
-int printSyntaxTree(ProductionRight& _produc, int _cur, LexList &_lexes, int _lex_index, int _layer) {
-    // //打印所有的产生式
+std::pair<int,int> printSyntaxTree(ProductionRight& _produc, int _cur, LexList &_lexes, int _lex_index, int _layer) {
+     //打印所有的产生式
     //printf("shit:\n");
     //for (auto i : _produc) {
     //    for (auto j : i) {
-    //        std::cout << j.type << ":" << j.val << " ";
+    //        std::cout  << j.val << " ";
     //    }
     //    std::cout << "\n";
     //}
     //std::cout << "\n";
-    //return 1;
+    //return { 0,0 };
 
     // 打印树
     int width = 20;
-    int num = 0; // 匹配到词法单元的数量
+    std::pair<int, int> nums = { _lex_index, _cur }; // 匹配到词法单元的数量
     widthPrint(_produc[_cur][0].val, '-', width);
     bool flag = true;
     for (int i = 1; i < _produc[_cur].size(); i++) {
@@ -202,27 +209,16 @@ int printSyntaxTree(ProductionRight& _produc, int _cur, LexList &_lexes, int _le
             if (_produc[_cur][i].type == 0 || _produc[_cur][i].type == 1) {
                 std::cout << _produc[_cur][i].val << " ";
             }
-            std::cout << _lexes[_lex_index + num].lexeme << " ";
+            std::cout << _lexes[nums.first].lexeme << " ";
             std::cout << "\n";
-            num++;
+            nums.first += 1;
+
         }
         else {
-            int cur;
-            bool flag = false;
-            for (cur = _cur+1; cur < _produc.size(); cur++) {
-                if (_produc[cur][0].val == _produc[_cur][i].val) {
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag) {
-                SEE(_produc[cur][0].val);
-                SEE(_produc[_cur][i].val);
-                return 0;
-            }
-            num += printSyntaxTree(_produc, cur, _lexes, _lex_index + num, _layer + 1);
+            nums.second += 1;
+            nums = printSyntaxTree(_produc, nums.second, _lexes, nums.first, _layer + 1);
         }
         flag = false;
     }
-    return num;
+    return nums;
 }

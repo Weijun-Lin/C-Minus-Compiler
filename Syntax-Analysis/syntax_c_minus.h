@@ -129,7 +129,7 @@ private:
 void widthPrint(std::string _str, char _c = ' ', int _width = 4);
 
 // 通过所选产生式打印语法树
-int printSyntaxTree(ProductionRight& _produc, int _cur, LexList& _lexes, int _lex_index = 0, int _layer = 0);
+std::pair<int, int> printSyntaxTree(ProductionRight& _produc, int _cur, LexList& _lexes, int _lex_index = 0, int _layer = 0);
 
 
 #endif // !__SYNTAX_C_MINUS_H__

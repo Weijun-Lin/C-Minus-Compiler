@@ -16,7 +16,8 @@
 //    {"c", LexicalName::SPECIAL_SYMBOL},
 //};
 
-std::string file_path = "./in.txt";
+std::string file_path = "./test_set/test7.txt";
+//std::string file_path = "./in.txt";
 std::string out_file_path = "./out.txt";
 
 // 读取文本文件

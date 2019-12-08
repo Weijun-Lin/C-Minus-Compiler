@@ -118,25 +118,26 @@ void Recursivs_Descent::analysis() {
 
 std::pair<int, ProductionRight> Recursivs_Descent::__match(std::string _name, TokenList _follow, int _index)
 {
-    //// 打印产生式 左符号和follow follow 为待匹配集合
-    //std::cout << _name << ":\n" << "follow:\n";
+    SEE(_index);
+    // 打印产生式 左符号和follow follow 为待匹配集合
+    std::cout << _name << ":\n" << "follow:\n";
 
-    //for (auto i : _follow) {
-    //    std::cout << i.val << " ";
-    //}
-    //std::cout << "\n";
+    for (auto i : _follow) {
+        std::cout << i.val << " ";
+    }
+    std::cout << "\n";
     std::pair<int, ProductionRight> res;
     int cur = _index, matched = 0;  // cur 当前匹配token matched；当前匹配数量
     ProductionRight produc = Grammar[_name]; // 获取对应的产生式集
-    //// 打印产生式
-    //std::cout << "进入产生式: " << _name << ":";
-    //for (auto i : produc) {
-    //    for (auto j : i) {
-    //        std::cout << j.val << " ";
-    //    }
-    //    std::cout << ";";
-    //}
-    //std::cout << "\n\n";
+    // 打印产生式
+    std::cout << "进入产生式: " << _name << ":";
+    for (auto i : produc) {
+        for (auto j : i) {
+            std::cout << j.val << " ";
+        }
+        std::cout << ";";
+    }
+    std::cout << "\n\n";
     // 潜在的结果集合 多个产生式匹配取最长的 长度，产生式集合
     std::vector<std::pair<int, ProductionRight>> potential_res;
     // 选择一个产生式
@@ -144,11 +145,11 @@ std::pair<int, ProductionRight> Recursivs_Descent::__match(std::string _name, To
         TokenList src_one_produc = one_produc;
         // 将自己的产生式和待匹配产生式合并
         one_produc.insert(one_produc.end(), _follow.begin(), _follow.end());
-        //std::cout << "待匹配: ";
-        //for (auto i : one_produc) {
-        //    std::cout << i.val << " ";
-        //}
-        //std::cout << "\n\n";
+        std::cout << "待匹配: ";
+        for (auto i : one_produc) {
+            std::cout << i.val << " ";
+        }
+        std::cout << "\n\n";
         bool flag = true;   // 标识是否匹配成功
         // 遍历每个符号
         std::pair<int, ProductionRight> match_res = { 0, {} };
@@ -161,9 +162,17 @@ std::pair<int, ProductionRight> Recursivs_Descent::__match(std::string _name, To
                 }
                 // 匹配成功
                 else if (cur < __length && token_iter->match(__lex_list[cur])) {
-                    //std::cout << "匹配:" << token_iter->val << "\n";
+                    std::cout << "匹配:" << token_iter->val << "\n";
                     // 下标向前移动
                     cur++;
+                    if (cur == __length) {
+                        std::cout << "at end\n";
+                        std::cout << "匹配产生式: " << _name << " : ";
+                        for (auto i : src_one_produc) {
+                            std::cout << i.val << " ";
+                        }
+                        std::cout << "\n";
+                    }
                     matched++;
                 }
                 // 匹配失败
@@ -188,11 +197,11 @@ std::pair<int, ProductionRight> Recursivs_Descent::__match(std::string _name, To
         if (flag) {
             // match_res.first 是子产生式匹配数量 最终的要加上已匹配的
             match_res.first += matched;
-            //std::cout << "匹配产生式: " << _name << " : ";
-            //for (auto i : src_one_produc) {
-            //    std::cout << i.val << " ";
-            //}
-            //std::cout << "\n";
+            std::cout << "匹配产生式: " << _name << " : ";
+            for (auto i : src_one_produc) {
+                std::cout << i.val << " ";
+            }
+            std::cout << "\n";
             //src_one_produc.insert(src_one_produc.begin(), { 4, _name });
             //res.second.push_back(src_one_produc);
             //potential_res.push_back({match_res.first, src_one_produc });
@@ -227,16 +236,6 @@ std::pair<int, ProductionRight> Recursivs_Descent::__match(std::string _name, To
         res.second.insert(res.second.begin(), mid);
     }
 
-    //// 取最长产生式
-    //else {
-    //    int tar = 0;
-    //    for (int i = 0; i < potential_res.size(); i++) {
-    //        if (potential_res[i].size() > potential_res[tar].size()) {
-    //            tar = i;
-    //        }
-    //    }
-    //    res.second.push_back(potential_res[tar]);
-    //}
     //SEE(res.first);
     return res;
 }

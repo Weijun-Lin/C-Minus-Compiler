@@ -1,15 +1,5 @@
-int gcd(int x, int y) {
-	return x+y;
-}
-
 int main(int args) {
-	int a;
-	int b;
-	a = 3;
-	b = (a+4)/2;
-	printf(b);
-	return gcd(1,2);
-}
-
-int main(void) {
+	if(a == 1) {
+		return 2;
+	}
 }
