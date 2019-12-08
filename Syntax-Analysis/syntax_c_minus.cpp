@@ -11,7 +11,7 @@
 
 const std::string epsilon = "epsilon";
 
-std::map<std::string, Production> Productions = {
+std::map<std::string, ProductionRight> Grammar = {
     {"program",             {{ {4,"declaration-list"} }}},
     {"declaration-list",    {{ {4,"declaration"}, {4,"declaration-list`"} }}},
     {"declaration-list`",   {{ {4,"declaration"}, {4,"declaration-list`"} },
@@ -110,6 +110,17 @@ std::map<std::string, Production> Productions = {
 //    {"A", { {{3,"("},{4,"A"},{3,")"}}, {{5, "epsilon"}}}},
 //};
 
+/*
+// 测试 Follow First 编译原理 例4.30
+std::map<std::string, ProductionRight> Grammar = {
+    {"E", { {{4,"T"},{4,"E`"}}}},
+    {"E`", { {{3,"+"},{4,"T"},{4,"E`"}}, {{5, "epsilon"}}}},
+    {"T", { {{4,"F"},{4,"T`"}}}},
+    {"T`", { {{3,"*"},{4,"F"},{4,"T`"}}, {{5, "epsilon"}}}},
+    {"F", { {{3,"("},{4,"E"},{3,")"}}, {{3, "id"}}}},
+};
+*/
+
 
 bool Token::match(LexType& _lex) {
     if (_lex.token == LexicalName::ID) {
@@ -141,7 +152,7 @@ bool initLexList(LexList& _lex_list) {
     return true;
 }
 
-void widthPrint(std::string _str, int _width, char _c) {
+void widthPrint(std::string _str, char _c, int _width) {
     int len = _str.size();
     std::cout << _str;
     for (int i = len; i < _width; i++) {
@@ -149,8 +160,9 @@ void widthPrint(std::string _str, int _width, char _c) {
     }
 }
 
-void printSyntaxTree(Production& _produc, int _cur, int _layer) {
-    // 打印所有的产生式
+int printSyntaxTree(ProductionRight& _produc, int _cur, LexList &_lexes, int _lex_index, int _layer) {
+    // //打印所有的产生式
+    //printf("shit:\n");
     //for (auto i : _produc) {
     //    for (auto j : i) {
     //        std::cout << j.type << ":" << j.val << " ";
@@ -158,46 +170,59 @@ void printSyntaxTree(Production& _produc, int _cur, int _layer) {
     //    std::cout << "\n";
     //}
     //std::cout << "\n";
+    //return 1;
 
     // 打印树
-    widthPrint(_produc[_cur][0].val, 20, '-');
+    int width = 20;
+    int num = 0; // 匹配到词法单元的数量
+    widthPrint(_produc[_cur][0].val, '-', width);
     bool flag = true;
     for (int i = 1; i < _produc[_cur].size(); i++) {
         if(!flag){
             for (int j = 0; j < _layer*2; j++) {
                 // 名字占位
                 if (j % 2 == 0) {
-                    widthPrint("|", 20, ' ');
+                    widthPrint("|", ' ', width);
                 }
                 else {
-                    widthPrint("", 4, ' ');
+                    widthPrint("");
                 }
             }
-            widthPrint("|", 20, '-');
-            widthPrint("", 4, '-');
+            widthPrint("|", '-', width);
+            widthPrint("", '-');
         }
         else {
-            widthPrint("", 4, '-');
+            widthPrint("", '-');
         }
-        if (_produc[_cur][i].type != 4) {
-            widthPrint(_produc[_cur][i].val, 0, ' ');
+        if (_produc[_cur][i].type == 5) {
+            widthPrint(_produc[_cur][i].val);
             std::cout << "\n";
+        }
+        else if (_produc[_cur][i].type != 4) {
+            if (_produc[_cur][i].type == 0 || _produc[_cur][i].type == 1) {
+                std::cout << _produc[_cur][i].val << " ";
+            }
+            std::cout << _lexes[_lex_index + num].lexeme << " ";
+            std::cout << "\n";
+            num++;
         }
         else {
             int cur;
-            for (cur = _cur-1; cur >= 0; cur--) {
+            bool flag = false;
+            for (cur = _cur+1; cur < _produc.size(); cur++) {
                 if (_produc[cur][0].val == _produc[_cur][i].val) {
+                    flag = true;
                     break;
                 }
             }
-            if (cur < 0) {
+            if (!flag) {
                 SEE(_produc[cur][0].val);
                 SEE(_produc[_cur][i].val);
-                return;
+                return 0;
             }
-            printSyntaxTree(_produc, cur, _layer + 1);
+            num += printSyntaxTree(_produc, cur, _lexes, _lex_index + num, _layer + 1);
         }
         flag = false;
     }
-    
+    return num;
 }

@@ -5,6 +5,8 @@
 #include "syntax_c_minus.h"
 
 #define OUT_FILE
+#define __RECURSIVE_DESCENT__
+//#define __LL_1__
 
 // 测试自己的文法 全部为 SPECIAL_SYMBOL 单独匹配
 //LexList lexes = {
@@ -47,18 +49,31 @@ int main() {
     freopen("./out.txt", "w", stdout);
 #endif // OUT_FILE
 
+
     lexInit();
     //std::ofstream out; out.open(out_file_path);
     std::string src_code = readFile(file_path);
 
     LexList lexes = lexCompile(src_code);
-    if (initLexList(lexes)) {
-        Recursivs_Descent re(lexes);
-        re.analysis();
-    }
-    else {
+
+    if (!initLexList(lexes)) {
         std::cout << "error!!!" << std::endl;
+        return 1;
     }
+
+#ifdef __RECURSIVE_DESCENT__
+    Recursivs_Descent re(lexes);
+    re.analysis();
+#endif // RECURSIVE_DESCENT
+
+#ifdef __LL_1__
+    LL_1 ll_1(lexes);
+    ll_1.printFirstSet();
+    ll_1.printFollowSet();
+    ll_1.printAnalysisTable();
+#endif // LL_1
+
+
 
     return 0;
 }

@@ -130,6 +130,7 @@
     <ClInclude Include="syntax_c_minus.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ll1.cpp" />
     <ClCompile Include="recursive_descent.cpp" />
     <ClCompile Include="Syntax_Analysis.cpp" />
     <ClCompile Include="syntax_c_minus.cpp" />
