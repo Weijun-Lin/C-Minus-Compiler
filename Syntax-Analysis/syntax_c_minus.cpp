@@ -93,6 +93,7 @@ std::map<std::string, ProductionRight> Grammar = {
                              { {5,epsilon}}}},
 };
 
+
 // 测试是否完全回溯的测试文法
 // A->BC
 // B->ab|a
@@ -128,6 +129,15 @@ std::map<std::string, ProductionRight> Grammar = {
 };
 */
 
+/*
+// 测试 Follow First 编译原理 例4.33
+std::map<std::string, ProductionRight> Grammar = {
+    {"S", { {{3,"i"},{4,"E"},{3,"t"},{4,"S"},{4,"S`"}},{{3,"a"}}}},
+    {"S`", { {{3,"e"},{4,"S"}}, {{5, "epsilon"}}}},
+    {"E", { {{3,"b"}}}},
+};
+*/
+
 
 bool Token::match(LexType& _lex) {
     if (_lex.token == LexicalName::ID) {
@@ -145,10 +155,55 @@ bool Token::match(LexType& _lex) {
     return false;
 }
 
+Token Token::LexToToken(LexType _tar) {
+    Token token;
+    token.val = _tar.lexeme;
+    if (_tar.token == LexicalName::ID) {
+        token.type = 0;
+        token.val = "ID";
+    }
+    else if (_tar.token == LexicalName::NUM) {
+        token.type = 1;
+        token.val = "NUM";
+    }
+    else if (_tar.token == LexicalName::RESERVED_WORD) {
+        token.type = 2;
+    }
+    else if (_tar.token == LexicalName::SPECIAL_SYMBOL) {
+        token.type = 3;
+    }
+    return token;
+}
+
+bool Token::operator<(const Token& _other) const {
+    // 因为所有0类,1类,5类的val都是一样的
+    return type != _other.type ? type < _other.type : val < _other.val;
+}
+
+bool Token::operator==(const Token& _other) const {
+    if (type == 0 || type == 1 || type == 5 || type == 6) {
+        return type == _other.type;
+    }
+    else {
+        if (type != _other.type) {
+            return false;
+        }
+        else {
+            return val == _other.val;
+        }
+    }
+}
+
+bool Token::operator==(const LexType& _other) const {
+    return *this == LexToToken(_other);
+}
+
 
 bool initLexList(LexList& _lex_list) {
+    for (auto item : _lex_list) {
+        std::cout << item.show() << std::endl;
+    }
     for (int i = _lex_list.size() - 1; i >= 0; i--) {
-        std::cout << _lex_list[i].show() << "\n";
         if (_lex_list[i].token == LexicalName::ERROR) {
             return false;
         }
@@ -167,8 +222,8 @@ void widthPrint(std::string _str, char _c, int _width) {
     }
 }
 
-std::pair<int,int> printSyntaxTree(ProductionRight& _produc, int _cur, LexList &_lexes, int _lex_index, int _layer) {
-     //打印所有的产生式
+std::pair<int,int> printSyntaxTree(ProductionRight& _produc, LexList &_lexes, int _lex_index, int _cur, int _layer) {
+    // //打印所有的产生式
     //printf("shit:\n");
     //for (auto i : _produc) {
     //    for (auto j : i) {
@@ -209,14 +264,13 @@ std::pair<int,int> printSyntaxTree(ProductionRight& _produc, int _cur, LexList &
             if (_produc[_cur][i].type == 0 || _produc[_cur][i].type == 1) {
                 std::cout << _produc[_cur][i].val << " ";
             }
-            std::cout << _lexes[nums.first].lexeme << " ";
+            std::cout << nums.first << " " << _lexes[nums.first].lexeme << " ";
             std::cout << "\n";
             nums.first += 1;
-
         }
         else {
             nums.second += 1;
-            nums = printSyntaxTree(_produc, nums.second, _lexes, nums.first, _layer + 1);
+            nums = printSyntaxTree(_produc,  _lexes, nums.first, nums.second, _layer + 1);
         }
         flag = false;
     }

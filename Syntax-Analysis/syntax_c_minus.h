@@ -41,24 +41,23 @@ struct Token {
     int type;
     std::string val;
     bool match(LexType &_lex);
+    static Token LexToToken(LexType _tar);
     // 定义等级 SET 使用
-    bool operator < (const Token &_other) const {
-        // 因为所有0类,1类,5类的val都是一样的
-        return type != _other.type ? type < _other.type : val < _other.val;
-    }
-    bool operator == (const Token& _other) const {
-        if (type == 0 || type == 1 || type == 5 || type == 6) {
-            return type == _other.type;
-        }
-        else {
-            if (type != _other.type) {
-                return false;
-            }
-            else {
-                return val == _other.val;
-            }
-        }
-    }
+    bool operator < (const Token& _other) const;
+    bool operator == (const Token& _other) const;
+    bool operator == (const LexType& _other) const;
+    //    if (type == 0 || type == 1 || type == 5 || type == 6) {
+    //        return type == _other.type;
+    //    }
+    //    else {
+    //        if (type != _other.type) {
+    //            return false;
+    //        }
+    //        else {
+    //            return val == _other.val;
+    //        }
+    //    }
+    //}
 };
 
 
@@ -123,13 +122,14 @@ private:
     FollowSet __follow_set;
     AnalysisTable __analysis_table;
     bool __isLL_1;
+    std::pair<int, ProductionRight> __match();
 };
 
 // 打印width宽的 _str 不足用 _c 填充
 void widthPrint(std::string _str, char _c = ' ', int _width = 4);
 
 // 通过所选产生式打印语法树
-std::pair<int, int> printSyntaxTree(ProductionRight& _produc, int _cur, LexList& _lexes, int _lex_index = 0, int _layer = 0);
+std::pair<int, int> printSyntaxTree(ProductionRight& _produc, LexList& _lexes, int _lex_index = 0, int _cur = 0, int _layer = 0);
 
 
 #endif // !__SYNTAX_C_MINUS_H__

@@ -16,7 +16,7 @@
 //    {"c", LexicalName::SPECIAL_SYMBOL},
 //};
 
-std::string file_path = "./test_set/test7.txt";
+std::string file_path = "./test_set/test2.txt";
 //std::string file_path = "./in.txt";
 std::string out_file_path = "./out.txt";
 
@@ -57,7 +57,7 @@ int main() {
 
     LexList lexes = lexCompile(src_code);
 
-    if (!initLexList(lexes)) {
+    if (!initLexList(lexes) || lexes.size() == 0) {
         std::cout << "error!!!" << std::endl;
         return 1;
     }
@@ -72,6 +72,7 @@ int main() {
     ll_1.printFirstSet();
     ll_1.printFollowSet();
     ll_1.printAnalysisTable();
+    ll_1.analysis();
 #endif // LL_1
 
 
