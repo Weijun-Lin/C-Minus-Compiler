@@ -21,9 +21,27 @@ extern std::string Letter;
 extern std::string Digit;
 extern std::string Separator;
 
-// 对上面词法单元的初始化
+/*
+    @desc:
+        DFA Id;
+        DFA Comment;
+        DFA Num;
+        DFA Special_sign;
+        DFA Blank;
+        std::string Letter;
+        std::string Digit;
+        std::string Separator;
+        对上面词法单元的初始化
+*/
 void lexInit();
-// 编译词法
+/* 
+    @desc:
+        编译词法
+    @Param:
+        std::string _src_code: 输入源代码
+    @Return:
+        std::vector<LexType> 词法分析列表
+*/
 std::vector<LexType> lexCompile(std::string _src_code);
 
 #endif // !__LEX_C_MINUS_H__

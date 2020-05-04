@@ -5,8 +5,8 @@
 #include "syntax_c_minus.h"
 
 #define OUT_FILE
-#define __RECURSIVE_DESCENT__
-//#define __LL_1__
+//#define __RECURSIVE_DESCENT__
+#define __LL_1__
 
 // 测试自己的文法 全部为 SPECIAL_SYMBOL 单独匹配
 //LexList lexes = {
@@ -16,7 +16,7 @@
 //    {"c", LexicalName::SPECIAL_SYMBOL},
 //};
 
-std::string file_path = "./test_set/test2.txt";
+std::string file_path = "./test_set/test1.txt";
 //std::string file_path = "./in.txt";
 std::string out_file_path = "./out.txt";
 

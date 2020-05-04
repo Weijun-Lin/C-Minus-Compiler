@@ -223,17 +223,6 @@ void widthPrint(std::string _str, char _c, int _width) {
 }
 
 std::pair<int,int> printSyntaxTree(ProductionRight& _produc, LexList &_lexes, int _lex_index, int _cur, int _layer) {
-    // //打印所有的产生式
-    //printf("shit:\n");
-    //for (auto i : _produc) {
-    //    for (auto j : i) {
-    //        std::cout  << j.val << " ";
-    //    }
-    //    std::cout << "\n";
-    //}
-    //std::cout << "\n";
-    //return { 0,0 };
-
     // 打印树
     int width = 20;
     std::pair<int, int> nums = { _lex_index, _cur }; // 匹配到词法单元的数量

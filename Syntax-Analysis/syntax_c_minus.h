@@ -46,18 +46,6 @@ struct Token {
     bool operator < (const Token& _other) const;
     bool operator == (const Token& _other) const;
     bool operator == (const LexType& _other) const;
-    //    if (type == 0 || type == 1 || type == 5 || type == 6) {
-    //        return type == _other.type;
-    //    }
-    //    else {
-    //        if (type != _other.type) {
-    //            return false;
-    //        }
-    //        else {
-    //            return val == _other.val;
-    //        }
-    //    }
-    //}
 };
 
 
@@ -94,7 +82,6 @@ public:
     Recursivs_Descent(LexList _lex_list);
     void analysis();
 private:
-    //bool __match(std::string _name, int _index);
     // 返回匹配数量以及产生式集合
     std::pair<int, ProductionRight>  __match(std::string _name, TokenList _follow, int _index = 0);
 };
@@ -115,20 +102,32 @@ public:
     void printFollowSet();
     void printAnalysisTable();
 private:
-    FirstSet __getFirstSet();
-    FollowSet __getFollowSet();
-    AnalysisTable __getAnalysisTable();
+    FirstSet __getFirstSet(); // 生成First集合
+    FollowSet __getFollowSet(); // 生成Follow集合
+    AnalysisTable __getAnalysisTable(); // 生成分析表
     FirstSet __first_set;
     FollowSet __follow_set;
     AnalysisTable __analysis_table;
-    bool __isLL_1;
-    std::pair<int, ProductionRight> __match();
+    bool __isLL_1; // 判断是否是LL1文法（是否有冲突）
+    std::pair<int, ProductionRight> __match(); // 分析函数 重写父类
 };
 
 // 打印width宽的 _str 不足用 _c 填充
 void widthPrint(std::string _str, char _c = ' ', int _width = 4);
 
-// 通过所选产生式打印语法树
+/* 
+    @Desc:
+        通过所选产生式打印语法树
+    @Params:
+        ProductionRight& _produc: 产生式集合
+        LexList& _lexes: 源词法单元串
+        int _lex_index = 0: 词法单元分析下标 从0开始
+        int _cur = 0: 当前位置
+        int _layer = 0: 层数
+    @Return:
+        按树的方式打印树
+        
+*/
 std::pair<int, int> printSyntaxTree(ProductionRight& _produc, LexList& _lexes, int _lex_index = 0, int _cur = 0, int _layer = 0);
 
 

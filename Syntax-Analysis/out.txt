@@ -1,68 +1,132 @@
-< "/* A program to perform Euclid's
-Algorithm to compute gcd. */" , COMMENT >
+< "/* compute x! */" , COMMENT >
 < "
-
 " , BLANK >
 < "int" , RESERVED_WORD >
 < " " , BLANK >
-< "gcd" , ID >
-< " " , BLANK >
+< "factorial" , ID >
 < "(" , SPECIAL_SYMBOL >
 < "int" , RESERVED_WORD >
 < " " , BLANK >
-< "u" , ID >
-< "," , SPECIAL_SYMBOL >
-< " " , BLANK >
-< "int" , RESERVED_WORD >
-< " " , BLANK >
-< "v" , ID >
+< "x" , ID >
 < ")" , SPECIAL_SYMBOL >
 < "
 " , BLANK >
 < "{" , SPECIAL_SYMBOL >
 < "
 	" , BLANK >
+< "int" , RESERVED_WORD >
+< " " , BLANK >
+< "fac" , ID >
+< " " , BLANK >
+< "=" , SPECIAL_SYMBOL >
+< " " , BLANK >
+< "1" , NUM >
+< ";" , SPECIAL_SYMBOL >
+< "
+    " , BLANK >
+< "fac" , ID >
+< " " , BLANK >
+< "=" , SPECIAL_SYMBOL >
+< " " , BLANK >
+< "1" , NUM >
+< ";" , SPECIAL_SYMBOL >
+< "
+	" , BLANK >
 < "if" , RESERVED_WORD >
-< " " , BLANK >
 < "(" , SPECIAL_SYMBOL >
-< "v" , ID >
+< "x" , ID >
 < " " , BLANK >
-< "==" , SPECIAL_SYMBOL, EQ >
+< "<" , SPECIAL_SYMBOL, LT >
 < " " , BLANK >
 < "0" , NUM >
 < ")" , SPECIAL_SYMBOL >
 < "
-		" , BLANK >
+    " , BLANK >
+< "{" , SPECIAL_SYMBOL >
+< "	" , BLANK >
 < "return" , RESERVED_WORD >
 < " " , BLANK >
-< "u" , ID >
+< "1" , NUM >
+< ";" , SPECIAL_SYMBOL >
 < " " , BLANK >
+< "}" , SPECIAL_SYMBOL >
+< "
+    " , BLANK >
+< "if" , RESERVED_WORD >
+< "(" , SPECIAL_SYMBOL >
+< "x" , ID >
+< " " , BLANK >
+< "=" , SPECIAL_SYMBOL >
+< " " , BLANK >
+< "0" , NUM >
+< ")" , SPECIAL_SYMBOL >
+< "
+    " , BLANK >
+< "{" , SPECIAL_SYMBOL >
+< "
+    	" , BLANK >
+< "return" , RESERVED_WORD >
+< " " , BLANK >
+< "1" , NUM >
 < ";" , SPECIAL_SYMBOL >
 < "
-	" , BLANK >
+    " , BLANK >
+< "}" , SPECIAL_SYMBOL >
+< "
+    " , BLANK >
 < "else" , RESERVED_WORD >
 < "
+    " , BLANK >
+< "{" , SPECIAL_SYMBOL >
+< "
 		" , BLANK >
-< "return" , RESERVED_WORD >
+< "while" , RESERVED_WORD >
 < " " , BLANK >
-< "gcd" , ID >
 < "(" , SPECIAL_SYMBOL >
-< "v" , ID >
-< "," , SPECIAL_SYMBOL >
-< "u" , ID >
-< "-" , SPECIAL_SYMBOL >
-< "u" , ID >
-< "/" , SPECIAL_SYMBOL >
-< "v" , ID >
-< "*" , SPECIAL_SYMBOL >
-< "v" , ID >
+< "x" , ID >
+< " " , BLANK >
+< ">" , SPECIAL_SYMBOL, GT >
+< " " , BLANK >
+< "0" , NUM >
 < ")" , SPECIAL_SYMBOL >
+< "
+    	" , BLANK >
+< "{" , SPECIAL_SYMBOL >
+< " 
+    		" , BLANK >
+< "fac" , ID >
+< " " , BLANK >
+< "=" , SPECIAL_SYMBOL >
+< " " , BLANK >
+< "fac" , ID >
+< " " , BLANK >
+< "*" , SPECIAL_SYMBOL >
+< " " , BLANK >
+< "x" , ID >
 < ";" , SPECIAL_SYMBOL >
 < "
-	" , BLANK >
-< "/* u-u/v*v == u mod v */" , COMMENT >
+        	" , BLANK >
+< "x" , ID >
+< " " , BLANK >
+< "=" , SPECIAL_SYMBOL >
+< " " , BLANK >
+< "x" , ID >
+< " " , BLANK >
+< "-" , SPECIAL_SYMBOL >
+< " " , BLANK >
+< "1" , NUM >
+< ";" , SPECIAL_SYMBOL >
 < "
-" , BLANK >
+    	" , BLANK >
+< "}" , SPECIAL_SYMBOL >
+< "
+    	" , BLANK >
+< "return" , RESERVED_WORD >
+< " " , BLANK >
+< "fac" , ID >
+< ";" , SPECIAL_SYMBOL >
+< "
+    " , BLANK >
 < "}" , SPECIAL_SYMBOL >
 < "
 
@@ -76,47 +140,36 @@ Algorithm to compute gcd. */" , COMMENT >
 < "
 " , BLANK >
 < "{" , SPECIAL_SYMBOL >
-< "
-	" , BLANK >
+< "	
+    " , BLANK >
 < "int" , RESERVED_WORD >
 < " " , BLANK >
 < "x" , ID >
 < ";" , SPECIAL_SYMBOL >
-< " " , BLANK >
-< "int" , RESERVED_WORD >
-< " " , BLANK >
-< "y" , ID >
-< ";" , SPECIAL_SYMBOL >
 < "
-	" , BLANK >
+    " , BLANK >
 < "x" , ID >
 < " " , BLANK >
 < "=" , SPECIAL_SYMBOL >
 < " " , BLANK >
 < "input" , ID >
-< "(" , SPECIAL_SYMBOL >
-< ")" , SPECIAL_SYMBOL >
 < ";" , SPECIAL_SYMBOL >
 < "
-	" , BLANK >
-< "y" , ID >
+    " , BLANK >
+< "xFac" , ID >
 < " " , BLANK >
 < "=" , SPECIAL_SYMBOL >
 < " " , BLANK >
-< "input" , ID >
+< "factorial" , ID >
 < "(" , SPECIAL_SYMBOL >
+< "x" , ID >
 < ")" , SPECIAL_SYMBOL >
 < ";" , SPECIAL_SYMBOL >
 < "
-	" , BLANK >
+    " , BLANK >
 < "output" , ID >
 < "(" , SPECIAL_SYMBOL >
-< "gcd" , ID >
-< "(" , SPECIAL_SYMBOL >
-< "x" , ID >
-< "," , SPECIAL_SYMBOL >
-< "y" , ID >
-< ")" , SPECIAL_SYMBOL >
+< "xFac" , ID >
 < ")" , SPECIAL_SYMBOL >
 < ";" , SPECIAL_SYMBOL >
 < "
@@ -124,206 +177,171 @@ Algorithm to compute gcd. */" , COMMENT >
 < "}" , SPECIAL_SYMBOL >
 < "
 " , BLANK >
-∆•≈‰:int
-∆•≈‰:ID
-∆•≈‰:(
-∆•≈‰:int
-∆•≈‰:ID
-∆•≈‰:,
-∆•≈‰:int
-∆•≈‰:ID
-∆•≈‰:)
-∆•≈‰:{
-∆•≈‰:if
-∆•≈‰:(
-∆•≈‰:ID
-∆•≈‰:==
-∆•≈‰:NUM
-∆•≈‰:)
-∆•≈‰:return
-∆•≈‰:ID
-∆•≈‰:;
-∆•≈‰:else
-∆•≈‰:return
-∆•≈‰:ID
-∆•≈‰:(
-∆•≈‰:ID
-∆•≈‰:,
-∆•≈‰:ID
-∆•≈‰:-
-∆•≈‰:ID
-∆•≈‰:/
-∆•≈‰:ID
-∆•≈‰:*
-∆•≈‰:ID
-∆•≈‰:)
-∆•≈‰:;
-∆•≈‰:}
-∆•≈‰:void
-∆•≈‰:ID
-∆•≈‰:(
-∆•≈‰:void
-∆•≈‰:)
-∆•≈‰:{
-∆•≈‰:int
-∆•≈‰:ID
-∆•≈‰:;
-∆•≈‰:int
-∆•≈‰:ID
-∆•≈‰:;
-∆•≈‰:ID
-∆•≈‰:=
-∆•≈‰:ID
-∆•≈‰:(
-∆•≈‰:)
-∆•≈‰:;
-∆•≈‰:ID
-∆•≈‰:=
-∆•≈‰:ID
-∆•≈‰:(
-∆•≈‰:)
-∆•≈‰:;
-∆•≈‰:ID
-∆•≈‰:(
-∆•≈‰:ID
-∆•≈‰:(
-∆•≈‰:ID
-∆•≈‰:,
-∆•≈‰:ID
-∆•≈‰:)
-∆•≈‰:)
-∆•≈‰:;
-∆•≈‰:}
-res.first: 70
-__lex_list.size(): 70
-∆•≈‰≥…π¶
-program-----------------declaration-list--------declaration-------------type-specifier----------0 int 
-|                       |                       |-----------------------ID 1 gcd 
-|                       |                       |-----------------------declaration`------------2 ( 
-|                       |                       |                       |-----------------------parmas------------------3 int 
-|                       |                       |                       |                       |-----------------------ID 4 u 
-|                       |                       |                       |                       |-----------------------parma`------------------epsilon
-|                       |                       |                       |                       |-----------------------parma-list`-------------5 , 
-|                       |                       |                       |                       |                       |-----------------------parma-------------------type-specifier----------6 int 
-|                       |                       |                       |                       |                       |                       |-----------------------ID 7 v 
-|                       |                       |                       |                       |                       |                       |-----------------------parma`------------------epsilon
-|                       |                       |                       |                       |                       |-----------------------parma-list`-------------epsilon
-|                       |                       |                       |-----------------------8 ) 
-|                       |                       |                       |-----------------------compound-stmt-----------9 { 
-|                       |                       |                       |                       |-----------------------local-declarations------local-declarations`-----epsilon
-|                       |                       |                       |                       |-----------------------statement-list----------statement-list`---------statement---------------selection-stmt----------10 if 
-|                       |                       |                       |                       |                       |                       |                       |                       |-----------------------11 ( 
-|                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression--------------ID 12 v 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------var`--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression``------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------simple-expression`------relop-------------------13 == 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression-----term--------------------factor------------------NUM 14 0 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |-----------------------15 ) 
-|                       |                       |                       |                       |                       |                       |                       |                       |-----------------------statement---------------return-stmt-------------16 return 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------return-stmt`------------expression--------------ID 17 u 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------var`--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression``------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------simple-expression`------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------18 ; 
-|                       |                       |                       |                       |                       |                       |                       |                       |-----------------------other-------------------19 else 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------statement---------------return-stmt-------------20 return 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------return-stmt`------------expression--------------ID 21 gcd 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------22 ( 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------args--------------------arg-list----------------expression--------------ID 23 v 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------var`--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression``------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------simple-expression`------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------arg-list`---------------24 , 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression--------------ID 25 u 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------var`--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression``------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----addop-------------------26 - 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------term--------------------factor------------------ID 27 u 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------factor`-----------------var`--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------term`-------------------mulop-------------------28 / 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------factor------------------ID 29 v 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------factor`-----------------var`--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------term`-------------------mulop-------------------30 * 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------factor------------------ID 31 v 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------factor`-----------------var`--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------simple-expression`------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------arg-list`---------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------32 ) 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------simple-expression`------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------33 ; 
-|                       |                       |                       |                       |                       |                       |-----------------------statement-list`---------epsilon
-|                       |                       |                       |                       |-----------------------34 } 
-|                       |-----------------------declaration-list`-------declaration-------------type-specifier----------35 void 
-|                       |                       |                       |-----------------------ID 36 main 
-|                       |                       |                       |-----------------------declaration`------------37 ( 
-|                       |                       |                       |                       |-----------------------parmas------------------38 void 
-|                       |                       |                       |                       |                       |-----------------------parmas`-----------------epsilon
-|                       |                       |                       |                       |-----------------------39 ) 
-|                       |                       |                       |                       |-----------------------compound-stmt-----------40 { 
-|                       |                       |                       |                       |                       |-----------------------local-declarations------local-declarations`-----var-declaration---------type-specifier----------41 int 
-|                       |                       |                       |                       |                       |                       |                       |                       |-----------------------ID 42 x 
-|                       |                       |                       |                       |                       |                       |                       |                       |-----------------------var-declaration`--------43 ; 
-|                       |                       |                       |                       |                       |                       |                       |-----------------------local-declarations`-----var-declaration---------type-specifier----------44 int 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------ID 45 y 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------var-declaration`--------46 ; 
-|                       |                       |                       |                       |                       |                       |                       |                       |-----------------------local-declarations`-----epsilon
-|                       |                       |                       |                       |                       |-----------------------statement-list----------statement-list`---------statement---------------expression-stmt---------expression--------------ID 47 x 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------var`--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression``------------48 = 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression--------------ID 49 input 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------50 ( 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------args--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------51 ) 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------simple-expression`------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------52 ; 
-|                       |                       |                       |                       |                       |                       |                       |-----------------------statement-list`---------statement---------------expression-stmt---------expression--------------ID 53 y 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------var`--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression``------------54 = 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression--------------ID 55 input 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------56 ( 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------args--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------57 ) 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------simple-expression`------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------58 ; 
-|                       |                       |                       |                       |                       |                       |                       |                       |-----------------------statement-list`---------statement---------------expression-stmt---------expression--------------ID 59 output 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------60 ( 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------args--------------------arg-list----------------expression--------------ID 61 gcd 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------62 ( 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------args--------------------arg-list----------------expression--------------ID 63 x 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------var`--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression``------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------simple-expression`------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------arg-list`---------------64 , 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression--------------ID 65 y 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression`-------------var`--------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------expression``------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------simple-expression`------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------arg-list`---------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------66 ) 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------simple-expression`------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------arg-list`---------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------67 ) 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------term`-------------------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------additive-expression`----epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------simple-expression`------epsilon
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------68 ; 
-|                       |                       |                       |                       |                       |                       |                       |                       |                       |-----------------------statement-list`---------epsilon
-|                       |                       |                       |                       |                       |-----------------------69 } 
-|                       |                       |-----------------------declaration-list`-------epsilon
+≥ÂÕª other else : epsilon 
+
+First Set:
+additive-expression      ID        NUM       (         
+additive-expression`     +         -         epsilon   
+addop                    +         -         
+arg-list                 ID        NUM       (         
+arg-list`                ,         epsilon   
+args                     ID        NUM       (         epsilon   
+compound-stmt            {         
+declaration              int       void      
+declaration-list         int       void      
+declaration-list`        int       void      epsilon   
+declaration`             (         ;         [         
+expression               ID        NUM       (         
+expression-stmt          ID        NUM       (         ;         
+expression`              !=        (         *         +         -         /         <         <=        =         ==        >         >=        [         epsilon   
+expression``             !=        *         +         -         /         <         <=        =         ==        >         >=        epsilon   
+factor                   ID        NUM       (         
+factor`                  (         [         epsilon   
+fun-declaration          int       void      
+iteration-stmt           while     
+local-declarations       int       void      epsilon   
+local-declarations`      int       void      epsilon   
+mulop                    *         /         
+other                    else      epsilon   
+parma                    int       void      
+parma-list               int       void      
+parma-list`              ,         epsilon   
+parma`                   [         epsilon   
+parmas                   int       void      
+parmas`                  ID        epsilon   
+program                  int       void      
+relop                    !=        <         <=        ==        >         >=        
+return-stmt              return    
+return-stmt`             ID        NUM       (         ;         
+selection-stmt           if        
+simple-expression        ID        NUM       (         
+simple-expression`       !=        <         <=        ==        >         >=        epsilon   
+statement                ID        NUM       if        return    while     (         ;         {         
+statement-list           ID        NUM       if        return    while     (         ;         {         epsilon   
+statement-list`          ID        NUM       if        return    while     (         ;         {         epsilon   
+term                     ID        NUM       (         
+term`                    *         /         epsilon   
+type-specifier           int       void      
+var-declaration          int       void      
+var-declaration`         ;         [         
+var`                     [         epsilon   
+
+Follow Set:
+additive-expression      !=        )         ,         ;         <         <=        ==        >         >=        ]         
+additive-expression`     !=        )         ,         ;         <         <=        ==        >         >=        ]         
+addop                    ID        NUM       (         
+arg-list                 )         
+arg-list`                )         
+args                     )         
+compound-stmt            ID        NUM       else      if        int       return    void      while     (         ;         {         }         $         
+declaration              int       void      $         
+declaration-list         $         
+declaration-list`        $         
+declaration`             int       void      $         
+expression               )         ,         ;         ]         
+expression-stmt          ID        NUM       else      if        return    while     (         ;         {         }         
+expression`              )         ,         ;         ]         
+expression``             )         ,         ;         ]         
+factor                   !=        )         *         +         ,         -         /         ;         <         <=        ==        >         >=        ]         
+factor`                  !=        )         *         +         ,         -         /         ;         <         <=        ==        >         >=        ]         
+fun-declaration          
+iteration-stmt           ID        NUM       else      if        return    while     (         ;         {         }         
+local-declarations       ID        NUM       if        return    while     (         ;         {         }         
+local-declarations`      ID        NUM       if        return    while     (         ;         {         }         
+mulop                    ID        NUM       (         
+other                    ID        NUM       else      if        return    while     (         ;         {         }         
+parma                    )         ,         
+parma-list               
+parma-list`              )         
+parma`                   )         ,         
+parmas                   )         
+parmas`                  )         
+program                  $         
+relop                    ID        NUM       (         
+return-stmt              ID        NUM       else      if        return    while     (         ;         {         }         
+return-stmt`             ID        NUM       else      if        return    while     (         ;         {         }         
+selection-stmt           ID        NUM       else      if        return    while     (         ;         {         }         
+simple-expression        
+simple-expression`       )         ,         ;         ]         
+statement                ID        NUM       else      if        return    while     (         ;         {         }         
+statement-list           }         
+statement-list`          }         
+term                     !=        )         +         ,         -         ;         <         <=        ==        >         >=        ]         
+term`                    !=        )         +         ,         -         ;         <         <=        ==        >         >=        ]         
+type-specifier           ID        
+var-declaration          ID        NUM       if        int       return    void      while     (         ;         {         }         
+var-declaration`         ID        NUM       if        int       return    void      while     (         ;         {         }         $         
+var`                     !=        )         *         +         ,         -         /         ;         <         <=        =         ==        >         >=        ]         
+
+Analysis Table
+additive-expression <ID,term additive-expression` >	<NUM,term additive-expression` >	<(,term additive-expression` >	
+additive-expression`<!=,epsilon >	<),epsilon >	<+,addop term additive-expression` >	<,,epsilon >	<-,addop term additive-expression` >	<;,epsilon >	<<,epsilon >	<<=,epsilon >	<==,epsilon >	<>,epsilon >	<>=,epsilon >	<],epsilon >	
+addop               <+,+ >	<-,- >	
+arg-list            <ID,expression arg-list` >	<NUM,expression arg-list` >	<(,expression arg-list` >	
+arg-list`           <),epsilon >	<,,, expression arg-list` >	
+args                <ID,arg-list >	<NUM,arg-list >	<(,arg-list >	<),epsilon >	
+compound-stmt       <{,{ local-declarations statement-list } >	
+declaration         <int,type-specifier ID declaration` >	<void,type-specifier ID declaration` >	
+declaration-list    <int,declaration declaration-list` >	<void,declaration declaration-list` >	
+declaration-list`   <int,declaration declaration-list` >	<void,declaration declaration-list` >	<$,epsilon >	
+declaration`        <(,( parmas ) compound-stmt >	<;,var-declaration` >	<[,var-declaration` >	
+expression          <ID,ID expression` >	<NUM,NUM term` additive-expression` simple-expression` >	<(,( expression ) term` additive-expression` simple-expression` >	
+expression-stmt     <ID,expression ; >	<NUM,expression ; >	<(,expression ; >	<;,; >	
+expression`         <!=,var` expression`` >	<(,( args ) term` additive-expression` simple-expression` >	<),var` expression`` >	<*,var` expression`` >	<+,var` expression`` >	<,,var` expression`` >	<-,var` expression`` >	</,var` expression`` >	<;,var` expression`` >	<<,var` expression`` >	<<=,var` expression`` >	<=,var` expression`` >	<==,var` expression`` >	<>,var` expression`` >	<>=,var` expression`` >	<[,var` expression`` >	<],var` expression`` >	
+expression``        <!=,term` additive-expression` simple-expression` >	<),term` additive-expression` simple-expression` >	<*,term` additive-expression` simple-expression` >	<+,term` additive-expression` simple-expression` >	<,,term` additive-expression` simple-expression` >	<-,term` additive-expression` simple-expression` >	</,term` additive-expression` simple-expression` >	<;,term` additive-expression` simple-expression` >	<<,term` additive-expression` simple-expression` >	<<=,term` additive-expression` simple-expression` >	<=,= expression >	<==,term` additive-expression` simple-expression` >	<>,term` additive-expression` simple-expression` >	<>=,term` additive-expression` simple-expression` >	<],term` additive-expression` simple-expression` >	
+factor              <ID,ID factor` >	<NUM,NUM >	<(,( expression ) >	
+factor`             <!=,var` >	<(,( args ) >	<),var` >	<*,var` >	<+,var` >	<,,var` >	<-,var` >	</,var` >	<;,var` >	<<,var` >	<<=,var` >	<==,var` >	<>,var` >	<>=,var` >	<[,var` >	<],var` >	
+fun-declaration     <int,type-specifier ID ( parmas ) compound-stmt >	<void,type-specifier ID ( parmas ) compound-stmt >	
+iteration-stmt      <while,while ( expression ) statement >	
+local-declarations  <ID,local-declarations` >	<NUM,local-declarations` >	<if,local-declarations` >	<int,local-declarations` >	<return,local-declarations` >	<void,local-declarations` >	<while,local-declarations` >	<(,local-declarations` >	<;,local-declarations` >	<{,local-declarations` >	<},local-declarations` >	
+local-declarations` <ID,epsilon >	<NUM,epsilon >	<if,epsilon >	<int,var-declaration local-declarations` >	<return,epsilon >	<void,var-declaration local-declarations` >	<while,epsilon >	<(,epsilon >	<;,epsilon >	<{,epsilon >	<},epsilon >	
+mulop               <*,* >	</,/ >	
+other               <ID,epsilon >	<NUM,epsilon >	<else,else statement >	<if,epsilon >	<return,epsilon >	<while,epsilon >	<(,epsilon >	<;,epsilon >	<{,epsilon >	<},epsilon >	
+parma               <int,type-specifier ID parma` >	<void,type-specifier ID parma` >	
+parma-list          <int,parma parma-list` >	<void,parma parma-list` >	
+parma-list`         <),epsilon >	<,,, parma parma-list` >	
+parma`              <),epsilon >	<,,epsilon >	<[,[ ] >	
+parmas              <int,int ID parma` parma-list` >	<void,void parmas` >	
+parmas`             <ID,ID parma` parma-list` >	<),epsilon >	
+program             <int,declaration-list >	<void,declaration-list >	
+relop               <!=,!= >	<<,< >	<<=,<= >	<==,== >	<>,> >	<>=,>= >	
+return-stmt         <return,return return-stmt` >	
+return-stmt`        <ID,expression ; >	<NUM,expression ; >	<(,expression ; >	<;,; >	
+selection-stmt      <if,if ( expression ) statement other >	
+simple-expression   <ID,additive-expression simple-expression` >	<NUM,additive-expression simple-expression` >	<(,additive-expression simple-expression` >	
+simple-expression`  <!=,relop additive-expression >	<),epsilon >	<,,epsilon >	<;,epsilon >	<<,relop additive-expression >	<<=,relop additive-expression >	<==,relop additive-expression >	<>,relop additive-expression >	<>=,relop additive-expression >	<],epsilon >	
+statement           <ID,expression-stmt >	<NUM,expression-stmt >	<if,selection-stmt >	<return,return-stmt >	<while,iteration-stmt >	<(,expression-stmt >	<;,expression-stmt >	<{,compound-stmt >	
+statement-list      <ID,statement-list` >	<NUM,statement-list` >	<if,statement-list` >	<return,statement-list` >	<while,statement-list` >	<(,statement-list` >	<;,statement-list` >	<{,statement-list` >	<},statement-list` >	
+statement-list`     <ID,statement statement-list` >	<NUM,statement statement-list` >	<if,statement statement-list` >	<return,statement statement-list` >	<while,statement statement-list` >	<(,statement statement-list` >	<;,statement statement-list` >	<{,statement statement-list` >	<},epsilon >	
+term                <ID,factor term` >	<NUM,factor term` >	<(,factor term` >	
+term`               <!=,epsilon >	<),epsilon >	<*,mulop factor term` >	<+,epsilon >	<,,epsilon >	<-,epsilon >	</,mulop factor term` >	<;,epsilon >	<<,epsilon >	<<=,epsilon >	<==,epsilon >	<>,epsilon >	<>=,epsilon >	<],epsilon >	
+type-specifier      <int,int >	<void,void >	
+var-declaration     <int,type-specifier ID var-declaration` >	<void,type-specifier ID var-declaration` >	
+var-declaration`    <;,; >	<[,[ NUM ] ; >	
+var`                <!=,epsilon >	<),epsilon >	<*,epsilon >	<+,epsilon >	<,,epsilon >	<-,epsilon >	</,epsilon >	<;,epsilon >	<<,epsilon >	<<=,epsilon >	<=,epsilon >	<==,epsilon >	<>,epsilon >	<>=,epsilon >	<[,[ expression ] >	<],epsilon >	
+∆•≈‰≤˙…˙ Ω: program->declaration-list 
+∆•≈‰≤˙…˙ Ω: declaration-list->declaration declaration-list` 
+∆•≈‰≤˙…˙ Ω: declaration->type-specifier ID declaration` 
+∆•≈‰≤˙…˙ Ω: type-specifier->int 
+∆•≈‰: int
+∆•≈‰: ID
+∆•≈‰≤˙…˙ Ω: declaration`->( parmas ) compound-stmt 
+∆•≈‰: (
+∆•≈‰≤˙…˙ Ω: parmas->int ID parma` parma-list` 
+∆•≈‰: int
+∆•≈‰: ID
+∆•≈‰≤˙…˙ Ω: parma`->epsilon 
+∆•≈‰≤˙…˙ Ω: parma-list`->epsilon 
+∆•≈‰: )
+∆•≈‰≤˙…˙ Ω: compound-stmt->{ local-declarations statement-list } 
+∆•≈‰: {
+∆•≈‰≤˙…˙ Ω: local-declarations->local-declarations` 
+∆•≈‰≤˙…˙ Ω: local-declarations`->var-declaration local-declarations` 
+∆•≈‰≤˙…˙ Ω: var-declaration->type-specifier ID var-declaration` 
+∆•≈‰≤˙…˙ Ω: type-specifier->int 
+∆•≈‰: int
+∆•≈‰: ID
+var-declaration` : = ¥ÌŒÛœÓ
+res.first: 9
+__lex_list.size(): 90
+∆•≈‰ ß∞‹
